@@ -19,7 +19,7 @@ public class CameraBehavior : MonoBehaviour
     //ABSTRACTION
     void CheckCameraFocus()
     {
-        if (!isGameHard)
+        if (isGameHard)
         {
             player = GameObject.Find("Car");
         }

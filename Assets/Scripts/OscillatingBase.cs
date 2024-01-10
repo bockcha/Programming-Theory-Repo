@@ -6,13 +6,15 @@ using UnityEngine;
 //Base class for INHERITANCE
 public class OscillatingBase : MonoBehaviour
 {
-    private float time;
-    [SerializeField] float speed = 1;
+    protected float time;
+    [SerializeField] protected float speed = 0.6f;
+    [SerializeField] protected float delayTime;
 
-    private int length = 1;
 
-    [SerializeField] Vector3 pointA;
-    [SerializeField] Vector3 pointB;
+    protected int length = 1;
+
+    [SerializeField] protected Vector3 pointA;
+    [SerializeField] protected Vector3 pointB;
 
     private void Start()
     {
@@ -23,10 +25,10 @@ public class OscillatingBase : MonoBehaviour
         Oscillate();
     }
 
-    //ABSTRACTION
-    void Oscillate()
+    //ABSTRACTION and POLYMORPHISM
+    protected virtual void Oscillate()
     {
-        time = Mathf.PingPong(Time.time * speed, length);
+        time = Mathf.PingPong((Time.time+delayTime) * speed, length);
 
         transform.position = Vector3.Lerp(pointA, pointB, time);
     }

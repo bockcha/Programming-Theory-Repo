@@ -5,11 +5,11 @@ using UnityEngine;
 //Base class for INHERITANCE
 public class PlayerControllerBase : MonoBehaviour
 {
-    private float vertInput;
-    private float horizInput;
+    protected float vertInput;
+    protected float horizInput;
 
-    [SerializeField] float driveSpeed;
-    [SerializeField] float turnSpeed;
+    [SerializeField] protected float driveSpeed;
+    [SerializeField] protected float turnSpeed;
 
     void Update()
     {
@@ -17,7 +17,7 @@ public class PlayerControllerBase : MonoBehaviour
     }
 
     //ABSTRACTION
-    private void Move()
+    protected virtual void Move()
     {
         vertInput = Input.GetAxis("Vertical");
 
@@ -26,5 +26,18 @@ public class PlayerControllerBase : MonoBehaviour
         horizInput = Input.GetAxis("Horizontal");
 
         transform.Rotate(Vector3.up * Time.deltaTime * horizInput * turnSpeed);
+    }
+
+    protected void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Fail"))
+        {
+            Destroy(gameObject);
+            //lose level
+        }
+        if (other.gameObject.CompareTag("Score"))
+        {
+            //win level
+        }
     }
 }
