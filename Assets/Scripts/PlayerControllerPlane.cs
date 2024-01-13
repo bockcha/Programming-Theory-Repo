@@ -6,6 +6,10 @@ using UnityEngine.Scripting.APIUpdating;
 //INHERITANCE
 public class PlayerControllerPlane : PlayerControllerBase
 {
+    private void Awake()
+    {
+        DriveSpeed = 10.0f;
+    }
     void Update()
     {
         Move();
@@ -22,6 +26,6 @@ public class PlayerControllerPlane : PlayerControllerBase
 
         transform.Rotate(Vector3.up * Time.deltaTime * horizInput * turnSpeed);
 
-        transform.Translate(Vector3.forward * Time.deltaTime * driveSpeed);
+        transform.Translate(Vector3.forward * Time.deltaTime * DriveSpeed);
     }
 }

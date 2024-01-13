@@ -8,7 +8,22 @@ public class PlayerControllerBase : MonoBehaviour
     protected float vertInput;
     protected float horizInput;
 
-    [SerializeField] protected float driveSpeed;
+    //ENCAPSULATION
+    private float driveSpeed = 30.0f;
+    [SerializeField] protected float DriveSpeed
+    {
+        get { return driveSpeed; }
+        set
+        {
+            if(value > 0)
+            {
+                driveSpeed = value;
+            } else
+            {
+                Debug.LogError("Drive speed cannot be a negative value");
+            }
+        }
+    }
     [SerializeField] protected float turnSpeed;
 
     [SerializeField] protected GameManager gameManager;
@@ -23,7 +38,7 @@ public class PlayerControllerBase : MonoBehaviour
     {
         vertInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.forward * Time.deltaTime * vertInput * driveSpeed);
+        transform.Translate(Vector3.forward * Time.deltaTime * vertInput * DriveSpeed);
 
         horizInput = Input.GetAxis("Horizontal");
 
@@ -40,6 +55,8 @@ public class PlayerControllerBase : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Score"))
         {
+            Destroy(gameObject);
+            gameManager.Score();
             //win level
         }
     }

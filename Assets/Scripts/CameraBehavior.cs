@@ -8,18 +8,15 @@ public class CameraBehavior : MonoBehaviour
 
     public GameObject player;
 
-    public bool isGameHard;
-
     private void Start()
     {
-        isGameHard = false;
         CheckCameraFocus();
     }
 
     //ABSTRACTION
     void CheckCameraFocus()
     {
-        if (!isGameHard)
+        if (!MainManager.Instance.isGameHard)
         {
             player = GameObject.Find("Car");
         }
@@ -31,6 +28,9 @@ public class CameraBehavior : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = (player.transform.position + offsetPos);
+        if(player.gameObject != null)
+        {
+            transform.position = (player.transform.position + offsetPos);
+        }
     }
 }
