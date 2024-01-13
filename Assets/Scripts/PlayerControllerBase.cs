@@ -11,6 +11,8 @@ public class PlayerControllerBase : MonoBehaviour
     [SerializeField] protected float driveSpeed;
     [SerializeField] protected float turnSpeed;
 
+    [SerializeField] protected GameManager gameManager;
+
     void Update()
     {
         Move();
@@ -33,6 +35,7 @@ public class PlayerControllerBase : MonoBehaviour
         if (other.gameObject.CompareTag("Fail"))
         {
             Destroy(gameObject);
+            gameManager.Fail();
             //lose level
         }
         if (other.gameObject.CompareTag("Score"))

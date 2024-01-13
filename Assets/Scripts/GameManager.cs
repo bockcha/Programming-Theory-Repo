@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int failCounter;
+
+    [SerializeField] TextMeshProUGUI failText;
+
+    private void Awake()
     {
-        
+        failCounter = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    //ABSTRACTION
+    public void Fail()
     {
-        
+        failCounter++;
+        failText.text = "Fails: " + failCounter;
     }
 }

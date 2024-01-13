@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3173060316297392271
+--- !u!1 &4077698077200432976
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3173060316297392267}
-  - component: {fileID: 3173060316297392266}
-  - component: {fileID: 3173060316297392265}
-  - component: {fileID: 4504865710495294163}
-  - component: {fileID: 1287764251703610066}
+  - component: {fileID: 4077698077200432981}
+  - component: {fileID: 4077698077200432980}
+  - component: {fileID: 4077698077200432983}
+  - component: {fileID: 4077698077200432977}
+  - component: {fileID: 1016175189635523098}
+  - component: {fileID: 7954656164209710780}
   m_Layer: 0
-  m_Name: Unmoving plane
+  m_Name: Oscillating Platform-Grd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3173060316297392267
+--- !u!4 &4077698077200432981
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173060316297392271}
+  m_GameObject: {fileID: 4077698077200432976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 13}
-  m_LocalScale: {x: 2, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 38}
+  m_LocalScale: {x: 1, y: 1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3173060316297392266
+--- !u!33 &4077698077200432980
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173060316297392271}
+  m_GameObject: {fileID: 4077698077200432976}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3173060316297392265
+--- !u!23 &4077698077200432983
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173060316297392271}
+  m_GameObject: {fileID: 4077698077200432976}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65f403a7f50bf2e4c82c7df0828b5c69, type: 2}
+  - {fileID: 2100000, guid: 20691318a6dbca54ca2270dfefda44f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +86,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &4504865710495294163
+--- !u!114 &4077698077200432977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077698077200432976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6065ff3d1948b8a48a10299535946ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.6
+  delayTime: 0
+  pointA: {x: -5, y: 0, z: 0}
+  pointB: {x: 5, y: 0, z: 0}
+--- !u!54 &1016175189635523098
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173060316297392271}
+  m_GameObject: {fileID: 4077698077200432976}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -99,15 +116,15 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &1287764251703610066
+--- !u!65 &7954656164209710780
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173060316297392271}
+  m_GameObject: {fileID: 4077698077200432976}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
